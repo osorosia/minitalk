@@ -6,13 +6,14 @@
 #    By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 01:31:51 by rnishimo          #+#    #+#              #
-#    Updated: 2022/02/04 15:49:21 by rnishimo         ###   ########.fr        #
+#    Updated: 2022/02/04 15:58:21 by rnishimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 
 CLIENT = client
 SERVER = server
+LIBFT = ./libft/libft.a
 CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS_CLIENT = \
@@ -51,14 +52,17 @@ all: $(CLIENT) $(SERVER)
 
 $(NAME): all
 
-$(CLIENT): $(OBJS_C) $(HEADER)
-	gcc $(CFLAGS) $(DEBUG) -o $@ $^ 
+$(CLIENT): $(OBJS_C) $(HEADER) $(LIBFT)
+	gcc $(CFLAGS) $(DEBUG) -o $@ $^
 
-$(SERVER): $(OBJS_S) $(HEADER)
+$(SERVER): $(OBJS_S) $(HEADER) $(LIBFT)
 	gcc $(CFLAGS) $(DEBUG) -o $@ $^
 
 %.o: %.c
 	gcc $(CFLAGS) $(DEBUG) -c -o $@ $<
+
+$(LIBFT):
+	make -C ./libft
 
 .PHONY: bonus
 \bonus: all
