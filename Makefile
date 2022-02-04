@@ -6,7 +6,7 @@
 #    By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 01:31:51 by rnishimo          #+#    #+#              #
-#    Updated: 2022/02/04 15:58:21 by rnishimo         ###   ########.fr        #
+#    Updated: 2022/02/04 16:20:14 by rnishimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME =
 CLIENT = client
 SERVER = server
 LIBFT = ./libft/libft.a
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -g
+# CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS_CLIENT = \
 ./mandatory/client.c \
