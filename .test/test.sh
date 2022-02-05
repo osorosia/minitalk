@@ -43,7 +43,7 @@ timer() {
     end_time=`date +%s`
     
     run_time=$((end_time - start_time))
-    echo "time: $run_time"
+    echo "  - time: $run_time"
 }
 
 # mandatory
