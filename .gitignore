@@ -1,5 +1,10 @@
 **/.vscode/
 
-**/*.o
 **/server
 **/client
+
+**/*.o
+**/tmp*
+**/temp*
+**/*tmp
+**/*temp
