@@ -6,11 +6,18 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:25:00 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/05 03:44:24 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 08:45:37 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	_print_char(char c)
+{
+	if (c == EOT)
+		c = '\n';
+	ft_putchar_fd(c, 1);
+}
 
 void	_after_receive_signal(t_server *server)
 {
@@ -23,7 +30,7 @@ void	_after_receive_signal(t_server *server)
 	server->size++;
 	if (server->size == 8)
 	{
-		ft_putchar_fd(server->c, 1);
+		_print_char(server->c);
 		ft_memset(server, 0, sizeof(t_server));
 	}
 }

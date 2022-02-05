@@ -6,7 +6,7 @@
 #    By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 01:31:51 by rnishimo          #+#    #+#              #
-#    Updated: 2022/02/05 08:34:40 by rnishimo         ###   ########.fr        #
+#    Updated: 2022/02/05 08:48:00 by rnishimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,7 @@ norm:
 	norminette | grep Error | cat
 
 .PHONY: test
-test: re
+test:
 	cd ./.test && ./test.sh 2> /dev/null
 
 .PHONY: debug

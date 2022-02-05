@@ -35,6 +35,6 @@ assert() {
     fi
 }
 
-# tests
-assert aaaaa
-assert aaaaa_nl
+# mandatory
+make re -C .. &> /dev/null
+assert simple

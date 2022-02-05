@@ -6,7 +6,7 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 14:56:47 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/04 17:08:39 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 08:42:55 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # ifndef DEBUG
 #  define DEBUG 0
 # endif
+
+# define EOT 4
 
 typedef struct s_server
 {
