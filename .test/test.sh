@@ -35,6 +35,20 @@ assert() {
     fi
 }
 
+timer() {
+    filename=$1
+
+    start_time=`date +%s`
+    assert $1
+    end_time=`date +%s`
+    
+    run_time=$((end_time - start_time))
+    echo "time: $run_time"
+}
+
 # mandatory
 make re -C .. &> /dev/null
 assert simple
+assert count_100
+
+timer count_1000
