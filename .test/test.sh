@@ -23,7 +23,7 @@ assert() {
     kill $PID
     cat ./output.tmp | sed -e '1d' > ./actual/$filename
 
-    diff --text ./actual/$filename ./expected/$filename > ./diff/$filename
+    diff --text -U 0 ./actual/$filename ./expected/$filename > ./diff/$filename
     result=$?
     if [ $result -eq 0 ]; then
         echo "$filename: OK"
