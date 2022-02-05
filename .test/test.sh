@@ -51,4 +51,4 @@ make re -C .. &> /dev/null
 assert simple
 assert count_100
 
-timer count_1000
+timer count_500
