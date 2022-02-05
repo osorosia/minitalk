@@ -6,13 +6,13 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:25:00 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/04 16:55:50 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 01:30:11 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	after_receive_signal(t_server *server)
+void	_after_receive_signal(t_server *server)
 {
 	if (g_signal != SIGUSR1 && g_signal != SIGUSR2)
 		return ;
@@ -48,6 +48,6 @@ int	main(void)
 	while (true)
 	{
 		pause();
-		after_receive_signal(&server);
+		_after_receive_signal(&server);
 	}
 }
