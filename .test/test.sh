@@ -17,9 +17,9 @@ assert() {
 
     ../server 1>./actual/$filename 2>/dev/null &
 
-    PID=$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')
-    MESSAGE=$(cat ./expected/$filename)
-    ../client $PID $MESSAGE
+    PID="$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')"
+    MESSAGE="$(cat ./expected/$filename)"
+    ../client "$PID" "$MESSAGE"
 
     ./usleep 10000
     kill $PID
