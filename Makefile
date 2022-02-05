@@ -6,7 +6,7 @@
 #    By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 01:31:51 by rnishimo          #+#    #+#              #
-#    Updated: 2022/02/05 09:18:44 by rnishimo         ###   ########.fr        #
+#    Updated: 2022/02/05 09:29:43 by rnishimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,15 @@ LIBFT = ./libft/libft.a
 
 SRCS_CLIENT = \
 ./mandatory/client.c \
-./mandatory/utils.c
 
 SRCS_SERVER = \
 ./mandatory/server.c \
-./mandatory/utils.c
 
 SRCS_B_CLIENT = \
 ./bonus/client_bonus.c \
-./bonus/utils_bonus.c
+
 SRCS_B_SERVER = \
 ./bonus/server_bonus.c \
-./bonus/utils_bonus.c
 
 ifeq ($(findstring bonus,$(MAKECMDGOALS)), bonus)
 SRCS_C = $(SRCS_B_CLIENT)
