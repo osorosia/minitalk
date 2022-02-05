@@ -5,7 +5,7 @@ os=$(uname)
 assert() {
     filename=$1
 
-    ../server > ./actual/$filename &
+    ../server > ./output/$filename &
 
     PID=$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')
     MESSAGE=$(cat ./expected/$filename)
@@ -13,8 +13,7 @@ assert() {
 
     ./usleep 10000
     kill $PID
-
-    cat ./actual/$filename | sed -e '1d' > ./actual/$filename
+    cat ./output/$filename | sed -e '1d' > ./actual/$filename
 
     diff --text ./actual/$filename ./expected/$filename > ./diff/$filename
     result=$?
@@ -29,6 +28,8 @@ assert() {
 # init
 rm -rf actual
 mkdir actual
+rm -rf output
+mkdir output
 rm -rf diff
 mkdir diff
 

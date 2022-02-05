@@ -12,4 +12,5 @@
 # test
 **/actual/
 **/diff/
+**/output/
 **/usleep
