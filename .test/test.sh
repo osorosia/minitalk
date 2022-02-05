@@ -1,6 +1,14 @@
 #!/bin/bash
 
-os=$(uname)
+# init
+rm -rf actual
+mkdir actual
+rm -rf output
+mkdir output
+rm -rf diff
+mkdir diff
+
+gcc -o usleep usleep.c
 
 assert() {
     filename=$1
@@ -24,16 +32,6 @@ assert() {
         echo -e "\e[31m$filename: KO\e[m"
     fi
 }
-
-# init
-rm -rf actual
-mkdir actual
-rm -rf output
-mkdir output
-rm -rf diff
-mkdir diff
-
-gcc -o usleep usleep.c
 
 # tests
 assert simple
