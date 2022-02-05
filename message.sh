@@ -10,7 +10,7 @@ PID=$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')
 MESSAGE=$1
 ./client $PID $MESSAGE
 
-./.test/.usleep 100000
+./.test/usleep 100000
 kill $PID
 wait
 
