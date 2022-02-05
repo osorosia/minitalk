@@ -13,7 +13,7 @@ gcc -o usleep usleep.c
 assert() {
     filename=$1
 
-    ../server > ./output.tmp &
+    ../server 1>output.tmp 2>/dev/null &
 
     PID=$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')
     MESSAGE=$(cat ./expected/$filename)
