@@ -6,6 +6,7 @@ MESSAGE=$1
 ./client $PID $MESSAGE
 sleep 1
 kill $PID
+wait
 echo ----------------------------------------------------------
 cat output.tmp
 echo

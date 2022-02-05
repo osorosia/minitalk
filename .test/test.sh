@@ -23,6 +23,7 @@ assert() {
 
     ./usleep 10000
     kill $PID
+    wait
     
     diff --text -U 0 ./actual/$filename ./expected/$filename > ./diff/$filename
     result=$?
