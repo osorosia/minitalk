@@ -6,7 +6,7 @@
 #    By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 01:31:51 by rnishimo          #+#    #+#              #
-#    Updated: 2022/02/04 16:20:14 by rnishimo         ###   ########.fr        #
+#    Updated: 2022/02/05 01:43:20 by rnishimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME =
 CLIENT = client
 SERVER = server
 LIBFT = ./libft/libft.a
-CFLAGS = -g
+# CFLAGS = -g
 # CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS_CLIENT = \
@@ -54,10 +54,10 @@ all: $(CLIENT) $(SERVER)
 $(NAME): all
 
 $(CLIENT): $(OBJS_C) $(HEADER) $(LIBFT)
-	gcc $(CFLAGS) $(DEBUG) -o $@ $^
+	gcc $(CFLAGS) $(DEBUG) -o $@ $(OBJS_C) $(LIBFT)
 
 $(SERVER): $(OBJS_S) $(HEADER) $(LIBFT)
-	gcc $(CFLAGS) $(DEBUG) -o $@ $^
+	gcc $(CFLAGS) $(DEBUG) -o $@ $(OBJS_S) $(LIBFT)
 
 %.o: %.c
 	gcc $(CFLAGS) $(DEBUG) -c -o $@ $<
