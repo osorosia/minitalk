@@ -35,4 +35,5 @@ assert() {
 }
 
 # tests
-assert simple
+assert aaaaa
+assert aaaaa_nl
