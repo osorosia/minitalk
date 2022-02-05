@@ -15,7 +15,7 @@ gcc -o usleep usleep.c
 assert() {
     filename=$1
 
-    ../server 1>./actual/$filename 2>/dev/null &
+    ../server 1>output.tmp 2>/dev/null &
 
     PID="$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')"
     MESSAGE="$(cat ./expected/$filename)"
@@ -25,6 +25,7 @@ assert() {
     kill $PID
     wait
     
+    cat output.tmp | sed -e '1d' > ./actual/$filename
     diff --text -U 0 ./actual/$filename ./expected/$filename > ./diff/$filename
     result=$?
     if [ $result -eq 0 ]; then

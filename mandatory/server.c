@@ -6,7 +6,7 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:25:00 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/05 09:08:50 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 09:46:09 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	main(void)
 	t_server	server;
 
 	ft_memset(&server, 0, sizeof(t_server));
-	ft_putstr_fd("PID: ", 2);
-	ft_putnbr_fd(getpid(), 2);
-	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("PID: ", 1);
+	ft_putnbr_fd(getpid(), 1);
+	ft_putstr_fd("\n", 1);
 	signal(SIGUSR1, _receive_signal);
 	signal(SIGUSR2, _receive_signal);
 	while (true)
