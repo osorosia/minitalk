@@ -13,7 +13,7 @@ gcc -o usleep usleep.c
 assert() {
     filename=$1
 
-    ../server > ./output/$filename &
+    ../server > ./output.tmp &
 
     PID=$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')
     MESSAGE=$(cat ./expected/$filename)
@@ -21,7 +21,7 @@ assert() {
 
     ./usleep 10000
     kill $PID
-    cat ./output/$filename | sed -e '1d' > ./actual/$filename
+    cat ./output.tmp | sed -e '1d' > ./actual/$filename
 
     diff --text ./actual/$filename ./expected/$filename > ./diff/$filename
     result=$?
