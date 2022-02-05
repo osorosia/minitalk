@@ -6,7 +6,7 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:23:22 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/04 17:15:25 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 02:50:53 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 	int pid = ft_atoi(argv[1]);
 	char *str = argv[2];
 	int i = 0;
-	debug(pid, str);
+	// debug(pid, str);
 	while (str[i])
 	{
 		_send_char(pid, str[i]);
