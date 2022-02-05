@@ -1,6 +1,4 @@
 **/.vscode/
-**/actual/
-**/diff/
 
 **/server
 **/client
@@ -10,3 +8,8 @@
 **/temp*
 **/*tmp
 **/*temp
+
+# test
+**/actual/
+**/diff/
+**/usleep

@@ -11,11 +11,7 @@ assert() {
     MESSAGE=$(cat ./expected/$filename)
     ../client $PID $MESSAGE
 
-    if [ $os == 'Linux' ]; then
-        sleep 1
-    else
-        usleep 10000
-    fi
+    ./usleep 10000
     kill $PID
 
     cat ./actual/$filename | sed -e '1d' > ./actual/$filename
@@ -35,6 +31,8 @@ rm -rf actual
 mkdir actual
 rm -rf diff
 mkdir diff
+
+gcc -o usleep usleep.c
 
 # tests
 assert simple
