@@ -6,7 +6,7 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 14:56:47 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/05 08:42:55 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 09:13:48 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,15 @@
 # endif
 
 # define EOT 4
+# define BYTE 8
 
 typedef struct s_server
 {
 	int		size;
 	char	c;
-} t_server;
+}	t_server;
 
 // gloval variable
-int g_signal;
-
-// utils.c
-
+int	g_signal;
 
 #endif

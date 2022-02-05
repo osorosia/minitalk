@@ -6,7 +6,7 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:25:00 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/05 08:45:37 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 09:08:50 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	_after_receive_signal(t_server *server)
 
 void	_receive_signal(int signal)
 {
-	// ft_putnbr_fd(signal, 1);
-	// ft_putstr_fd("\n", 1);
 	g_signal = signal;
 }
 
