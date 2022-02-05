@@ -1,5 +1,7 @@
 #!/bin/bash
 
+os=$(uname)
+
 # init
 rm -rf actual
 mkdir actual
@@ -13,7 +15,7 @@ gcc -o usleep usleep.c
 assert() {
     filename=$1
 
-    ../server 1>output.tmp 2>/dev/null &
+    ../server 1>./actual/$filename 2>/dev/null &
 
     PID=$(ps -a | grep server | grep -v grep | grep -v defunct | awk '{print $1}')
     MESSAGE=$(cat ./expected/$filename)
@@ -21,15 +23,14 @@ assert() {
 
     ./usleep 10000
     kill $PID
-    cat ./output.tmp | sed -e '1d' > ./actual/$filename
-
+    
     diff --text -U 0 ./actual/$filename ./expected/$filename > ./diff/$filename
     result=$?
     if [ $result -eq 0 ]; then
         echo "$filename: OK"
         rm -f ./diff/$filename
     else
-        echo -e "\e[31m$filename: KO\e[m"
+        echo "$filename: KO!!!!!!!"
     fi
 }
 
