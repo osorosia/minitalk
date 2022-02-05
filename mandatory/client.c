@@ -6,7 +6,7 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:23:22 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/02/05 09:17:09 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/02/05 09:27:19 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	_send_char(int pid, unsigned char c)
 	i = BYTE;
 	while (i > 0)
 	{
-		usleep(200);
+		usleep(USLEEP_TIME);
 		signal = SIGUSR2;
 		if ((c >> (i - 1)) & 1)
 			signal = SIGUSR1;
