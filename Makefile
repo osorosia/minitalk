@@ -6,7 +6,7 @@
 #    By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 01:31:51 by rnishimo          #+#    #+#              #
-#    Updated: 2022/02/05 08:48:00 by rnishimo         ###   ########.fr        #
+#    Updated: 2022/02/05 09:18:44 by rnishimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,10 @@ norm:
 .PHONY: test
 test:
 	cd ./.test && ./test.sh 2> /dev/null
+
+.PHONY: big
+big:
+	cd ./.test && ./big_test.sh 2> /dev/null
 
 .PHONY: debug
 debug: re
