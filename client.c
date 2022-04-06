@@ -35,7 +35,7 @@ void	_error(char *str)
 	exit(1);
 }
 
-int _atoi(char *str)
+int	_atoi(char *str)
 {
 	long	i;
 	long	num;
