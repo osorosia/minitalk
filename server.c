@@ -15,7 +15,7 @@
 static void	_print_char(char c)
 {
 	if (c == EOT)
-		c = '\n';
+		return ;
 	ft_putchar_fd(c, 1);
 }
 
