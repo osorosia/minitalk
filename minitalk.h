@@ -15,11 +15,7 @@
 
 # include <signal.h>
 # include <sys/types.h>
-# include "../libft/libft.h"
-
-# ifndef DEBUG
-#  define DEBUG 0
-# endif
+# include "./libft/libft.h"
 
 # define EOT 4
 # define BYTE 8

@@ -14,56 +14,33 @@ NAME = minitalk
 CLIENT = client
 SERVER = server
 LIBFT = ./libft/libft.a
-# CFLAGS = -g
-# CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g
 
-SRCS_CLIENT = \
-./mandatory/client.c \
+SRCS_CLIENT = ./client.c
+SRCS_SERVER = ./server.c
 
-SRCS_SERVER = \
-./mandatory/server.c \
-
-SRCS_B_CLIENT = \
-./bonus/client_bonus.c \
-
-SRCS_B_SERVER = \
-./bonus/server_bonus.c \
-
-ifeq ($(findstring bonus,$(MAKECMDGOALS)), bonus)
-SRCS_C = $(SRCS_B_CLIENT)
-SRCS_S = $(SRCS_B_SERVER)
-HEADER = ./bonus/minitalk_bonus.h
-else
-SRCS_C = $(SRCS_CLIENT)
-SRCS_S = $(SRCS_SERVER)
-HEADER = ./mandatory/minitalk.h
-endif
-OBJS_C = $(SRCS_C:.c=.o)
-OBJS_S = $(SRCS_S:.c=.o)
-
-ifeq ($(findstring debug, $(MAKECMDGOALS)), debug)
-DEBUG = -D DEBUG=1
-endif
-
-.PHONY: all
-all: $(CLIENT) $(SERVER)
+OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
+OBJS_SERVER = $(SRCS_SERVER:.c=.o)
 
 $(NAME): all
 
-$(CLIENT): $(OBJS_C) $(HEADER) $(LIBFT)
-	gcc $(CFLAGS) $(DEBUG) -o $@ $(OBJS_C) $(LIBFT)
+$(CLIENT): $(OBJS_CLIENT) $(HEADER) $(LIBFT)
+	cc $(CFLAGS) -o $@ $(OBJS_CLIENT) $(LIBFT)
 
-$(SERVER): $(OBJS_S) $(HEADER) $(LIBFT)
-	gcc $(CFLAGS) $(DEBUG) -o $@ $(OBJS_S) $(LIBFT)
+$(SERVER): $(OBJS_SERVER) $(HEADER) $(LIBFT)
+	cc $(CFLAGS) -o $@ $(OBJS_SERVER) $(LIBFT)
 
 $(LIBFT):
 	make -C ./libft
 
 %.o: %.c
-	gcc $(CFLAGS) $(DEBUG) -c -o $@ $<
+	cc $(CFLAGS) -c -o $@ $<
+
+.PHONY: all
+all: $(CLIENT) $(SERVER)
 
 .PHONY: bonus
-\bonus: all
+bonus: all
 
 .PHONY: clean
 clean:
@@ -85,17 +62,6 @@ re: fclean all
 .PHONY: norm
 norm:
 	norminette | grep Error | cat
-
-.PHONY: test
-test:
-	cd ./.test && ./test.sh 2> /dev/null
-
-.PHONY: big
-big:
-	cd ./.test && ./big_test.sh 2> /dev/null
-
-.PHONY: debug
-debug: re
 
 .PHONY: submit
 submit:

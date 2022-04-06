@@ -29,10 +29,29 @@ void	_send_char(int pid, unsigned char c)
 	}
 }
 
-void	_usage(void)
+void	_error(char *str)
 {
-	ft_putstr_fd("usage: ./client [pid] [message]\n", 2);
+	ft_putstr_fd(str, 2);
 	exit(1);
+}
+
+int _atoi(char *str) {
+	long	i;
+	long	num;
+	
+	if (str[0] == '\0')
+		return (-1);
+	num = 0;
+	i = -1;
+	while (str[++i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (-1);
+		num = num * 10 + str[i] - '0';
+		if (num > INT_MAX)
+			return (-1);
+	}
+	return (num);
 }
 
 int	main(int argc, char **argv)
@@ -42,8 +61,10 @@ int	main(int argc, char **argv)
 	char	*str;
 
 	if (argc != 3)
-		_usage();
-	pid = ft_atoi(argv[1]);
+		_error("usage: ./client [pid] [message]\n");
+	pid = _atoi(argv[1]);
+	if (pid <= 0)
+		_error("error: invalid argument\n");
 	str = argv[2];
 	i = 0;
 	while (str[i])
