@@ -40,7 +40,8 @@ static void	_receive_signal(int signal)
 	g_signal = signal;
 }
 
-static void	_print_pid(void) {
+static void	_print_pid(void)
+{
 	ft_putstr_fd("PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putstr_fd("\n", 1);
