@@ -46,8 +46,6 @@ bonus: all
 clean:
 	rm -f $(SRCS_CLIENT:.c=.o)
 	rm -f $(SRCS_SERVER:.c=.o)
-	rm -f $(SRCS_B_CLIENT:.c=.o)
-	rm -f $(SRCS_B_SERVER:.c=.o)
 	
 .PHONY: fclean
 fclean: clean
