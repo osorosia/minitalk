@@ -19,7 +19,7 @@
 
 # define EOT 4
 # define BYTE 8
-# define USLEEP_TIME 300
+# define USLEEP_TIME 200
 
 typedef struct s_server
 {
